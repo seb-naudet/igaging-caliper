@@ -1,0 +1,87 @@
+# Traduction française de l'extension « Pied à coulisse parlant ».
+# Compilée en nvda.mo par nvda/construire.py.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fr\n"
+
+msgid "Caliper measurements"
+msgstr "Mesures pied à coulisse"
+
+msgid "measurements.txt"
+msgstr "mesures.txt"
+
+msgid "."
+msgstr ","
+
+msgid "zero"
+msgstr "zéro"
+
+msgid "{n} inch"
+msgstr "{n} pouce"
+
+msgid "{n} inches"
+msgstr "{n} pouces"
+
+msgid "{n} millimeter"
+msgstr "{n} millimètre"
+
+msgid "{n} millimeters"
+msgstr "{n} millimètres"
+
+msgid "minus {m}"
+msgstr "moins {m}"
+
+msgid "Caliper"
+msgstr "Pied à coulisse"
+
+msgid "&Save measurements to a file"
+msgstr "&Enregistrer les mesures dans un fichier"
+
+msgid "Measurements file &folder"
+msgstr "&Dossier du fichier des mesures"
+
+msgid "&Browse..."
+msgstr "&Parcourir..."
+
+msgid "Choose the measurements folder"
+msgstr "Choisir le dossier des mesures"
+
+msgid "&Copy each measurement to the clipboard"
+msgstr "&Copier chaque mesure dans le presse-papiers"
+
+msgid "&Log received keys (troubleshooting)"
+msgstr "&Journal des touches reçues (dépannage)"
+
+msgid "Start of a caliper measurement (F24 key sent by the caliper)"
+msgstr "Début d'une mesure du pied à coulisse (touche F24 envoyée par le pied)"
+
+msgid "logs"
+msgstr "journaux"
+
+msgid "caliper"
+msgstr "pied à coulisse"
+
+msgid "{m}, measurements file not writable"
+msgstr "{m}, fichier des mesures inaccessible"
+
+msgid "&Announce when the caliper connects or disconnects"
+msgstr "&Annoncer quand le pied se connecte ou se déconnecte"
+
+msgid "Caliper connected"
+msgstr "Pied à coulisse connecté"
+
+msgid "Caliper disconnected"
+msgstr "Pied à coulisse déconnecté"
+
+msgid "Report the caliper battery level"
+msgstr "Dire le niveau de pile du pied à coulisse"
+
+msgid "Caliper battery level unknown"
+msgstr "Niveau de pile du pied inconnu"
+
+msgid "Caliper battery {n} percent"
+msgstr "Pile du pied {n} pour cent"
+
+msgid "Caliper disconnected, last known battery level {n} percent"
+msgstr "Pied à coulisse déconnecté, dernier niveau de pile connu {n} pour cent"

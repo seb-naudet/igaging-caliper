@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>igaging-caliper: calibre parlante</title>
+</head>
+<body>
+<h1>igaging-caliper: calibre parlante</h1>
+<p>Complemento de NVDA que hace que NVDA anuncie las medidas de un calibre
+(pie de rey) Bluetooth iGaging, sin que las cifras se escriban en la ventana
+abierta. Cada medida se añade también a un archivo de texto.</p>
+
+<h2>Dispositivo compatible</h2>
+<p>Calibre Bluetooth iGaging, que aparece en Windows con el nombre
+«Bluetooth Keyboard». Se comporta como un teclado: cada vez que envía, teclea
+la tecla F24, un espacio y luego la medida. El complemento reconoce la tecla
+F24; un dispositivo que no envíe F24 no será reconocido.</p>
+
+<p>Comprobado con el modelo 100-700-B06 en Windows 11.</p>
+
+<h2>Instalación</h2>
+<ol>
+<li>Abrir el archivo <code>igaging-caliper.nvda-addon</code> (Intro sobre él
+en el Explorador de archivos), confirmar la instalación y reiniciar
+NVDA.</li>
+<li>Emparejar el calibre en Windows: Configuración, Bluetooth y
+dispositivos, Agregar dispositivo, Bluetooth, elegir «Bluetooth
+Keyboard».</li>
+</ol>
+
+<h2>Uso</h2>
+<p>Pulsar el botón DATA del calibre: NVDA dice por ejemplo
+«21,99 milímetros». No se escribe nada en la ventana activa, tanto en un
+campo de edición como en modo exploración en una página web.</p>
+
+<h2>Si la medida no llega</h2>
+<ul>
+<li><strong>La pantalla del calibre está apagada</strong> (botón ON/OFF): el
+calibre deja de medir y DATA no envía nada, pero puede seguir conectado por
+Bluetooth, así que NVDA no dice «desconectado». Pulsar ON/OFF: este botón vuelve
+a encender la pantalla y reinicia la medición. Después, esperar unos segundos
+antes de pulsar DATA; iGaging recomienda 10 segundos.</li>
+<li><strong>NVDA ha dicho «desconectado»</strong>: con la pantalla encendida,
+mantener pulsado DATA unos 5 segundos para volver a conectar y esperar unos
+segundos antes de medir. El calibre nunca se vuelve a conectar solo: incluso una
+interrupción de un minuto (Bluetooth del ordenador apagado, suspensión, calibre
+fuera de alcance) requiere este gesto.</li>
+<li><strong>El calibre se apaga o se desconecta solo</strong>: la pila se está
+agotando y hay que cambiarla.</li>
+</ul>
+
+<h2>Apagado, Bluetooth y pila</h2>
+<p>El calibre no se apaga solo. iGaging indica un apagado tras 5 minutos sin
+uso, pero en el modelo probado la pantalla sigue encendida y las medidas se
+siguen enviando después de 2 horas sin tocarlo: mientras siga conectado, sigue
+listo. Ese apagado tras 5 minutos probablemente solo afecta al Bluetooth cuando
+ningún dispositivo acepta la conexión: si NVDA no dice «conectado» en los
+minutos siguientes, mantenga pulsado DATA de nuevo unos 5 segundos. Los
+apagados o desconexiones espontáneos solo aparecen cuando la pila se agota.</p>
+
+<p>Para apagarlo por completo y ahorrar pila:</p>
+<ol>
+<li>Pulsar ON/OFF para apagar la pantalla.</li>
+<li>Pulsar brevemente DATA: no debe anunciarse ninguna medida, lo que confirma
+que el calibre está apagado.</li>
+<li>Mantener pulsado DATA unos 5 segundos: el Bluetooth se apaga y NVDA dice
+«Calibre desconectado».</li>
+</ol>
+<p>Para continuar: pulsar ON/OFF y mantener pulsado DATA unos 5 segundos para
+volver a conectar. Después de cambiar la pila, comprobar el cero con las
+mordazas cerradas; si hace falta, pulsar brevemente ORIGIN.</p>
+
+<p>El nivel de pila se puede anunciar con una orden que no tiene atajo por
+defecto: para usarla, asignarle un gesto en Preferencias, Gestos de entrada,
+categoría «Calibre», «Anunciar el nivel de pila del calibre». Con el calibre conectado, el
+nivel está al día, por ejemplo «Pila del calibre 96 por ciento». Desconectado,
+NVDA da el último nivel conocido: «Calibre desconectado, último nivel de pila
+conocido 96 por ciento».</p>
+
+<h2>Opciones</h2>
+<p>Menú de NVDA, Preferencias, Opciones, categoría «Calibre»:</p>
+<ul>
+<li><strong>Anunciar cuando el calibre se conecta o se desconecta</strong>
+(activado por defecto): NVDA dice «Calibre conectado» o «Calibre desconectado»,
+unos 2 segundos después del cambio. El calibre se reconoce por su nombre
+Bluetooth, «Bluetooth Keyboard»: si un teclado Bluetooth Low Energy real tiene
+el mismo nombre, el anuncio también se aplicará a él; en ese caso, desactivar
+esta casilla.</li>
+<li><strong>Guardar las medidas en un archivo</strong> (medidas.txt,
+activado por defecto): una línea por medida, columnas separadas por
+tabuladores: fecha y hora, valor (punto decimal), unidad, «calibre». El
+archivo se abre en una hoja de cálculo.</li>
+<li><strong>Carpeta del archivo de medidas</strong>: por defecto la carpeta
+«Medidas del calibre» en Documentos (se crea con la primera medida). El
+botón Examinar permite elegir otra.</li>
+<li><strong>Copiar cada medida al portapapeles</strong> (desactivado por
+defecto): el valor (por ejemplo 21,99) queda listo para pegar con
+Control+V.</li>
+<li><strong>Registrar las teclas recibidas</strong> (desactivado por
+defecto): para el diagnóstico, anota cada tecla recibida en una subcarpeta
+«registros».</li>
+</ul>
+
+<h2>Tecla F24</h2>
+<p>El gesto está en Preferencias, Gestos de entrada, categoría «Calibre».
+No quitarlo: sin él, la medida vuelve a escribirse en la ventana
+activa.</p>
+
+<h2>Idiomas</h2>
+<p>El complemento sigue el idioma de NVDA: español, inglés, francés o alemán
+(inglés para los demás idiomas).</p>
+
+<h2>Autores y contacto</h2>
+<p>seb-naudet y Claude Code (Anthropic), octubre de 2026. Versión 1.5.0, NVDA 2023.1 o posterior.
+Licencia: GNU GPL versión 2. Código fuente: <a href="https://github.com/seb-naudet/igaging-caliper">https://github.com/seb-naudet/igaging-caliper</a>.
+Preguntas, comentarios: <a href="mailto:binaural.bourbonnais@gmail.com">binaural.bourbonnais@gmail.com</a>.</p>
+</body>
+</html>

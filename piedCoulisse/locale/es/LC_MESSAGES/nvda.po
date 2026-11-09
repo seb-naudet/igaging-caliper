@@ -1,0 +1,87 @@
+# Traducción al español del complemento igaging-caliper.
+# Compilée en nvda.mo par nvda/construire.py.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: es\n"
+
+msgid "Caliper measurements"
+msgstr "Medidas del calibre"
+
+msgid "measurements.txt"
+msgstr "medidas.txt"
+
+msgid "."
+msgstr ","
+
+msgid "zero"
+msgstr "cero"
+
+msgid "{n} inch"
+msgstr "{n} pulgada"
+
+msgid "{n} inches"
+msgstr "{n} pulgadas"
+
+msgid "{n} millimeter"
+msgstr "{n} milímetro"
+
+msgid "{n} millimeters"
+msgstr "{n} milímetros"
+
+msgid "minus {m}"
+msgstr "menos {m}"
+
+msgid "Caliper"
+msgstr "Calibre"
+
+msgid "&Save measurements to a file"
+msgstr "&Guardar las medidas en un archivo"
+
+msgid "Measurements file &folder"
+msgstr "&Carpeta del archivo de medidas"
+
+msgid "&Browse..."
+msgstr "&Examinar..."
+
+msgid "Choose the measurements folder"
+msgstr "Elegir la carpeta de las medidas"
+
+msgid "&Copy each measurement to the clipboard"
+msgstr "Co&piar cada medida al portapapeles"
+
+msgid "&Log received keys (troubleshooting)"
+msgstr "&Registrar las teclas recibidas (diagnóstico)"
+
+msgid "Start of a caliper measurement (F24 key sent by the caliper)"
+msgstr "Inicio de una medida del calibre (tecla F24 enviada por el calibre)"
+
+msgid "logs"
+msgstr "registros"
+
+msgid "caliper"
+msgstr "calibre"
+
+msgid "{m}, measurements file not writable"
+msgstr "{m}, archivo de medidas no accesible"
+
+msgid "&Announce when the caliper connects or disconnects"
+msgstr "&Anunciar cuando el calibre se conecta o se desconecta"
+
+msgid "Caliper connected"
+msgstr "Calibre conectado"
+
+msgid "Caliper disconnected"
+msgstr "Calibre desconectado"
+
+msgid "Report the caliper battery level"
+msgstr "Anunciar el nivel de pila del calibre"
+
+msgid "Caliper battery level unknown"
+msgstr "Nivel de pila del calibre desconocido"
+
+msgid "Caliper battery {n} percent"
+msgstr "Pila del calibre {n} por ciento"
+
+msgid "Caliper disconnected, last known battery level {n} percent"
+msgstr "Calibre desconectado, último nivel de pila conocido {n} por ciento"

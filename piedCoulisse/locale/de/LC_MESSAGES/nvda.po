@@ -1,0 +1,87 @@
+# Deutsche Übersetzung der Erweiterung igaging-caliper.
+# Compilée en nvda.mo par nvda/construire.py.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: de\n"
+
+msgid "Caliper measurements"
+msgstr "Messschieber-Messungen"
+
+msgid "measurements.txt"
+msgstr "messwerte.txt"
+
+msgid "."
+msgstr ","
+
+msgid "zero"
+msgstr "null"
+
+msgid "{n} inch"
+msgstr "{n} Zoll"
+
+msgid "{n} inches"
+msgstr "{n} Zoll"
+
+msgid "{n} millimeter"
+msgstr "{n} Millimeter"
+
+msgid "{n} millimeters"
+msgstr "{n} Millimeter"
+
+msgid "minus {m}"
+msgstr "minus {m}"
+
+msgid "Caliper"
+msgstr "Messschieber"
+
+msgid "&Save measurements to a file"
+msgstr "Messwerte in einer Datei &speichern"
+
+msgid "Measurements file &folder"
+msgstr "&Ordner der Messwertdatei"
+
+msgid "&Browse..."
+msgstr "&Durchsuchen..."
+
+msgid "Choose the measurements folder"
+msgstr "Ordner für die Messwerte wählen"
+
+msgid "&Copy each measurement to the clipboard"
+msgstr "Jeden Messwert in die Zwischenablage &kopieren"
+
+msgid "&Log received keys (troubleshooting)"
+msgstr "Empfangene Tasten &protokollieren (Fehlersuche)"
+
+msgid "Start of a caliper measurement (F24 key sent by the caliper)"
+msgstr "Beginn einer Messung (vom Messschieber gesendete Taste F24)"
+
+msgid "logs"
+msgstr "protokolle"
+
+msgid "caliper"
+msgstr "Messschieber"
+
+msgid "{m}, measurements file not writable"
+msgstr "{m}, Messwertdatei nicht beschreibbar"
+
+msgid "&Announce when the caliper connects or disconnects"
+msgstr "&Ansagen, wenn der Messschieber verbunden oder getrennt wird"
+
+msgid "Caliper connected"
+msgstr "Messschieber verbunden"
+
+msgid "Caliper disconnected"
+msgstr "Messschieber getrennt"
+
+msgid "Report the caliper battery level"
+msgstr "Batteriestand des Messschiebers ansagen"
+
+msgid "Caliper battery level unknown"
+msgstr "Batteriestand des Messschiebers unbekannt"
+
+msgid "Caliper battery {n} percent"
+msgstr "Batterie des Messschiebers {n} Prozent"
+
+msgid "Caliper disconnected, last known battery level {n} percent"
+msgstr "Messschieber getrennt, letzter bekannter Batteriestand {n} Prozent"

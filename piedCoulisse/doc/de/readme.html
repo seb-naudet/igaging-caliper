@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>igaging-caliper: sprechender Messschieber</title>
+</head>
+<body>
+<h1>igaging-caliper: sprechender Messschieber</h1>
+<p>NVDA-Erweiterung, mit der NVDA die Messwerte eines iGaging-Bluetooth-
+Messschiebers ansagt, ohne dass die Ziffern in das geöffnete Fenster
+geschrieben werden. Jeder Messwert wird außerdem in eine Textdatei
+eingetragen.</p>
+
+<h2>Unterstütztes Gerät</h2>
+<p>iGaging-Bluetooth-Messschieber, der in Windows als „Bluetooth Keyboard“
+erscheint. Er verhält sich wie eine Tastatur: Bei jedem Senden tippt er die
+Taste F24, ein Leerzeichen und dann den Messwert. Die Erweiterung erkennt die
+Taste F24; ein Gerät, das kein F24 sendet, wird nicht erkannt.</p>
+
+<p>Geprüft mit dem Modell 100-700-B06 unter Windows 11.</p>
+
+<h2>Installation</h2>
+<ol>
+<li>Die Datei <code>igaging-caliper.nvda-addon</code> öffnen (im Explorer
+die Eingabetaste darauf drücken), die Installation bestätigen und NVDA neu
+starten.</li>
+<li>Den Messschieber in Windows koppeln: Einstellungen, Bluetooth und
+Geräte, Gerät hinzufügen, Bluetooth, „Bluetooth Keyboard“ wählen.</li>
+</ol>
+
+<h2>Verwendung</h2>
+<p>Die Taste DATA am Messschieber drücken: NVDA sagt zum Beispiel
+„21,99 Millimeter“. Im aktiven Fenster wird nichts geschrieben, egal ob man
+sich in einem Eingabefeld oder im Lesemodus auf einer Webseite befindet.</p>
+
+<h2>Wenn der Messwert nicht ankommt</h2>
+<ul>
+<li><strong>Die Anzeige des Messschiebers ist aus</strong> (Taste ON/OFF):
+Der Messschieber misst dann nicht mehr und DATA sendet nichts, aber er kann über
+Bluetooth verbunden bleiben, deshalb sagt NVDA nicht „getrennt“. ON/OFF drücken:
+Diese Taste schaltet die Anzeige wieder ein und startet die Messung neu. Dann
+einige Sekunden warten, bevor DATA gedrückt wird; iGaging empfiehlt
+10 Sekunden.</li>
+<li><strong>NVDA hat „getrennt“ gesagt</strong>: Bei eingeschalteter Anzeige
+DATA etwa 5 Sekunden gedrückt halten, um wieder zu verbinden, dann einige
+Sekunden bis zur Messung warten. Der Messschieber verbindet sich nie von selbst
+wieder: Schon eine Unterbrechung von einer Minute (Bluetooth des Computers
+ausgeschaltet, Energiesparmodus, Messschieber außer Reichweite) erfordert diese
+Geste.</li>
+<li><strong>Der Messschieber schaltet sich von selbst aus oder trennt die
+Verbindung</strong>: Die Batterie wird schwach und muss gewechselt werden.</li>
+</ul>
+
+<h2>Ausschalten, Bluetooth und Batterie</h2>
+<p>Der Messschieber schaltet sich nicht von selbst aus. iGaging gibt eine
+Abschaltung nach 5 Minuten ohne Benutzung an, aber beim getesteten Modell bleibt
+die Anzeige eingeschaltet und Messwerte werden auch nach 2 Stunden ohne
+Berührung noch gesendet: Solange er verbunden bleibt, bleibt er bereit. Diese
+Abschaltung nach 5 Minuten betrifft vermutlich nur das Bluetooth, wenn kein
+Gerät die Verbindung annimmt: Sagt NVDA nicht innerhalb weniger Minuten
+„verbunden“, DATA erneut etwa 5 Sekunden lang gedrückt halten.
+Selbstständiges Abschalten oder Trennen tritt erst auf, wenn die Batterie
+schwach wird.</p>
+
+<p>Um ihn vollständig auszuschalten und die Batterie zu schonen:</p>
+<ol>
+<li>ON/OFF drücken, um die Anzeige auszuschalten.</li>
+<li>Kurz DATA drücken: Es darf kein Messwert angesagt werden, das bestätigt,
+dass der Messschieber aus ist.</li>
+<li>DATA etwa 5 Sekunden gedrückt halten: Bluetooth schaltet sich aus und NVDA
+sagt „Messschieber getrennt“.</li>
+</ol>
+<p>Zum Weitermachen: ON/OFF drücken, dann DATA etwa 5 Sekunden gedrückt halten,
+um wieder zu verbinden. Nach einem Batteriewechsel den Nullpunkt bei
+geschlossenen Messschenkeln prüfen; bei Bedarf kurz ORIGIN drücken.</p>
+
+<p>Der Batteriestand kann mit einem Befehl angesagt werden, der keine
+voreingestellte Tastenkombination hat: Dafür unter Optionen, Tastenbefehle,
+Kategorie „Messschieber“, dem Befehl „Batteriestand des Messschiebers ansagen“ eine
+Tastenkombination zuweisen. Ist der Messschieber verbunden, ist der Stand aktuell,
+zum Beispiel „Batterie des Messschiebers 96 Prozent“. Ist er getrennt, nennt NVDA
+den letzten bekannten Stand: „Messschieber getrennt, letzter bekannter
+Batteriestand 96 Prozent“.</p>
+
+<h2>Einstellungen</h2>
+<p>NVDA-Menü, Optionen, Einstellungen, Kategorie „Messschieber“:</p>
+<ul>
+<li><strong>Ansagen, wenn der Messschieber verbunden oder getrennt
+wird</strong> (standardmäßig aktiviert): NVDA sagt etwa 2 Sekunden nach der
+Änderung „Messschieber verbunden“ oder „Messschieber getrennt“. Der Messschieber
+wird an seinem Bluetooth-Namen „Bluetooth Keyboard“ erkannt: Trägt eine echte
+Bluetooth-Low-Energy-Tastatur denselben Namen, gilt die Ansage auch für sie; in
+diesem Fall das Kontrollkästchen deaktivieren.</li>
+<li><strong>Messwerte in einer Datei speichern</strong> (messwerte.txt,
+standardmäßig aktiviert): eine Zeile pro Messwert, durch Tabulatoren
+getrennte Spalten: Datum und Uhrzeit, Wert (Dezimalpunkt), Einheit,
+„Messschieber“. Die Datei lässt sich in einer Tabellenkalkulation
+öffnen.</li>
+<li><strong>Ordner der Messwertdatei</strong>: standardmäßig der Ordner
+„Messschieber-Messungen“ unter Dokumente (wird bei der ersten Messung
+angelegt). Mit der Schaltfläche Durchsuchen lässt sich ein anderer
+wählen.</li>
+<li><strong>Jeden Messwert in die Zwischenablage kopieren</strong>
+(standardmäßig deaktiviert): der Wert (zum Beispiel 21,99) kann mit
+Strg+V eingefügt werden.</li>
+<li><strong>Empfangene Tasten protokollieren</strong> (standardmäßig
+deaktiviert): zur Fehlersuche wird jede empfangene Taste in einem
+Unterordner „protokolle“ festgehalten.</li>
+</ul>
+
+<h2>Taste F24</h2>
+<p>Der Befehl befindet sich unter Optionen, Tastenbefehle, Kategorie
+„Messschieber“. Nicht entfernen: ohne ihn wird der Messwert wieder in das
+aktive Fenster geschrieben.</p>
+
+<h2>Sprachen</h2>
+<p>Die Erweiterung folgt der Sprache von NVDA: Deutsch, Englisch,
+Französisch oder Spanisch (Englisch für alle anderen Sprachen).</p>
+
+<h2>Autoren und Kontakt</h2>
+<p>seb-naudet und Claude Code (Anthropic), Oktober 2026. Version 1.5.0, NVDA 2023.1 oder neuer.
+Lizenz: GNU GPL Version 2. Quellcode: <a href="https://github.com/seb-naudet/igaging-caliper">https://github.com/seb-naudet/igaging-caliper</a>.
+Fragen, Rückmeldungen: <a href="mailto:binaural.bourbonnais@gmail.com">binaural.bourbonnais@gmail.com</a>.</p>
+</body>
+</html>

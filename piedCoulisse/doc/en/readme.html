@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>igaging-caliper: talking caliper</title>
+</head>
+<body>
+<h1>igaging-caliper: talking caliper</h1>
+<p>NVDA add-on that makes NVDA speak the measurements of an iGaging Bluetooth
+caliper, without the digits being typed into the open window. Each
+measurement is also added to a text file.</p>
+
+<h2>Supported device</h2>
+<p>iGaging Bluetooth caliper, which shows up in Windows as
+"Bluetooth Keyboard". It behaves like a keyboard: each time it sends, it
+types the F24 key, a space, then the measurement. The add-on recognizes the
+F24 key; a device that does not send F24 will not be recognized.</p>
+
+<p>Checked with model 100-700-B06 on Windows 11.</p>
+
+<h2>Installation</h2>
+<ol>
+<li>Open the file <code>igaging-caliper.nvda-addon</code> (press Enter on
+it in File Explorer), confirm the installation, then restart NVDA.</li>
+<li>Pair the caliper in Windows: Settings, Bluetooth &amp; devices, Add
+device, Bluetooth, choose "Bluetooth Keyboard".</li>
+</ol>
+
+<h2>Usage</h2>
+<p>Press the DATA button of the caliper: NVDA says for example
+"21.99 millimeters". Nothing is typed into the active window, whether you
+are in an edit field or in browse mode on a web page.</p>
+
+<h2>If the measurement does not arrive</h2>
+<ul>
+<li><strong>The caliper's display is off</strong> (ON/OFF button): the
+caliper no longer measures and DATA sends nothing, but it may stay connected
+over Bluetooth, so NVDA does not say "disconnected". Press ON/OFF: this button
+turns the display back on and restarts measuring. Then wait a few seconds
+before pressing DATA; iGaging recommends 10 seconds.</li>
+<li><strong>NVDA said "disconnected"</strong>: with the display on, hold DATA
+for about 5 seconds to reconnect, then wait a few seconds before measuring. The
+caliper never reconnects by itself: even a one-minute break (computer Bluetooth
+turned off, sleep mode, caliper taken out of range) requires this gesture.</li>
+<li><strong>The caliper turns off or disconnects by itself</strong>: the
+battery is getting weak and needs replacing.</li>
+</ul>
+
+<h2>Turning off, Bluetooth and battery</h2>
+<p>The caliper does not turn off by itself. iGaging states that it stops after
+5 minutes without use, but on the tested model the display stays on and
+measurements are still sent after 2 hours without touching it: as long as it
+stays connected, it stays ready. This 5-minute stop probably only applies to
+Bluetooth when no device takes the connection: if NVDA does not say
+"connected" within a few minutes, hold DATA again for about 5 seconds.
+Spontaneous shutdowns or disconnections only appear when the battery gets
+weak.</p>
+
+<p>To turn it off completely and save the battery:</p>
+<ol>
+<li>Press ON/OFF to turn the display off.</li>
+<li>Briefly press DATA: no measurement should be spoken, which confirms that
+the caliper is off.</li>
+<li>Hold DATA for about 5 seconds: Bluetooth turns off and NVDA says "Caliper
+disconnected".</li>
+</ol>
+<p>To start again: press ON/OFF, then hold DATA for about 5 seconds to
+reconnect. After changing the battery, check the zero with the jaws closed; if
+needed, briefly press ORIGIN.</p>
+
+<p>The battery level can be reported by a command that has no default
+shortcut: to use it, assign a gesture in Preferences, Input gestures, "Caliper"
+category, "Report the caliper battery level". While the caliper is connected, the level
+is up to date, for example "Caliper battery 96 percent". When it is disconnected,
+NVDA gives the last known level: "Caliper disconnected, last known battery level
+96 percent".</p>
+
+<h2>Settings</h2>
+<p>NVDA menu, Preferences, Settings, "Caliper" category:</p>
+<ul>
+<li><strong>Announce when the caliper connects or disconnects</strong>
+(checked by default): NVDA says "Caliper connected" or "Caliper disconnected",
+about 2 seconds after the change. The caliper is recognized by its
+Bluetooth name, "Bluetooth Keyboard": if a real Bluetooth Low Energy keyboard
+has the same name, the announcement will apply to it too; in that case, uncheck
+this box.</li>
+<li><strong>Save measurements to a file</strong> (measurements.txt,
+checked by default): one line per measurement, tab-separated columns: date
+and time, value (decimal point), unit, "caliper". The file opens in a
+spreadsheet.</li>
+<li><strong>Measurements file folder</strong>: by default the
+"Caliper measurements" folder in Documents (created at the first
+measurement). The Browse button lets you choose another one.</li>
+<li><strong>Copy each measurement to the clipboard</strong> (unchecked by
+default): the value (for example 21.99) is ready to paste with
+Control+V.</li>
+<li><strong>Log received keys</strong> (unchecked by default): for
+troubleshooting, records every key received in a "logs" subfolder.</li>
+</ul>
+
+<h2>F24 key</h2>
+<p>The gesture is in Preferences, Input gestures, "Caliper" category. Do not
+remove it: without it, the measurement is typed into the active window
+again.</p>
+
+<h2>Languages</h2>
+<p>The add-on follows NVDA's language: English, French, German or Spanish
+(English for other languages).</p>
+
+<h2>Authors and contact</h2>
+<p>seb-naudet and Claude Code (Anthropic), October 2026. Version 1.5.0, NVDA 2023.1 or later.
+License: GNU GPL version 2. Source code: <a href="https://github.com/seb-naudet/igaging-caliper">https://github.com/seb-naudet/igaging-caliper</a>.
+Questions, feedback: <a href="mailto:binaural.bourbonnais@gmail.com">binaural.bourbonnais@gmail.com</a>.</p>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>igaging-caliper : pied à coulisse parlant</title>
+</head>
+<body>
+<h1>igaging-caliper : pied à coulisse parlant</h1>
+<p>Extension NVDA qui fait annoncer par NVDA les mesures d'un pied à coulisse
+Bluetooth iGaging, sans que les chiffres s'écrivent dans la fenêtre ouverte.
+Chaque mesure est aussi ajoutée à un fichier texte.</p>
+
+<h2>Appareil pris en charge</h2>
+<p>Pied à coulisse iGaging Bluetooth, qui apparaît dans Windows sous le nom
+« Bluetooth Keyboard ». Il se comporte comme un clavier : à chaque envoi, il
+tape la touche F24, un espace, puis la mesure. L'extension reconnaît la
+touche F24 ; un autre appareil qui n'envoie pas F24 ne sera pas reconnu.</p>
+
+<p>Vérifiée avec le modèle 100-700-B06 sous Windows 11.</p>
+
+<h2>Installation</h2>
+<ol>
+<li>Ouvrir le fichier <code>igaging-caliper.nvda-addon</code> (Entrée
+dessus dans l'explorateur), confirmer l'installation, puis redémarrer NVDA.</li>
+<li>Appairer le pied à coulisse dans Windows : Paramètres, Bluetooth et
+appareils, Ajouter un appareil, Bluetooth, choisir « Bluetooth Keyboard ».</li>
+</ol>
+
+<h2>Utilisation</h2>
+<p>Appuyer sur le bouton DATA du pied à coulisse : NVDA dit par exemple
+« 21,99 millimètres ». Rien n'est tapé dans la fenêtre active, que l'on soit
+dans un champ d'édition ou en mode navigation sur une page web.</p>
+
+<h2>Si la mesure n'arrive pas</h2>
+<ul>
+<li><strong>L'écran du pied est éteint</strong> (bouton ON/OFF) : le pied ne
+mesure plus et DATA n'envoie rien, mais il peut rester connecté en Bluetooth :
+NVDA ne dit alors pas « déconnecté ». Appuyer sur ON/OFF : ce bouton rallume
+l'écran et relance la mesure. Attendre ensuite quelques secondes avant
+d'appuyer sur DATA ; iGaging recommande 10 secondes.</li>
+<li><strong>NVDA a dit « déconnecté »</strong> : écran allumé, maintenir DATA
+environ 5 secondes pour reconnecter, puis attendre quelques secondes avant la
+mesure. Le pied ne se reconnecte jamais tout seul : même une coupure d'une
+minute (Bluetooth de l'ordinateur coupé, mise en veille, pied emporté trop
+loin) demande ce geste.</li>
+<li><strong>Le pied s'éteint ou se déconnecte tout seul</strong> : la pile
+faiblit, il faut la changer.</li>
+</ul>
+
+<h2>Arrêt, Bluetooth et pile</h2>
+<p>Le pied ne s'éteint pas tout seul. iGaging annonce un arrêt après
+5 minutes sans usage, mais sur le modèle testé l'écran reste allumé et la
+mesure part encore après 2 heures sans rien toucher : tant qu'il reste
+connecté, il reste prêt. Cet arrêt après 5 minutes concerne sans doute
+seulement le Bluetooth quand aucun appareil ne prend la liaison : si NVDA ne
+dit pas « connecté » dans les minutes qui suivent, maintenir de nouveau DATA
+environ 5 secondes. Des arrêts ou des déconnexions spontanés n'apparaissent
+que lorsque la pile faiblit.</p>
+
+<p>Pour l'éteindre complètement et ménager la pile :</p>
+<ol>
+<li>Appuyer sur ON/OFF pour éteindre l'écran.</li>
+<li>Appuyer brièvement sur DATA : aucune mesure ne doit être annoncée, ce qui
+confirme que le pied est éteint.</li>
+<li>Maintenir DATA environ 5 secondes : le Bluetooth se coupe et NVDA dit
+« Pied à coulisse déconnecté ».</li>
+</ol>
+<p>Pour reprendre : appuyer sur ON/OFF, puis maintenir DATA environ
+5 secondes pour reconnecter. Après un changement de pile, vérifier le zéro
+mâchoires fermées ; si besoin, appuyer brièvement sur ORIGIN.</p>
+
+<p>Le niveau de pile peut être annoncé par une commande, sans raccourci par
+défaut : pour l'utiliser, lui attribuer un geste dans Préférences, Gestes de
+commandes, catégorie « Pied à coulisse », « Dire le niveau de pile du pied à
+coulisse ». Pied connecté, le niveau est à jour, par exemple
+« Pile du pied 96 pour cent ». Pied déconnecté, NVDA donne le dernier niveau
+connu : « Pied à coulisse déconnecté, dernier niveau de pile connu 96 pour cent ».</p>
+
+<h2>Réglages</h2>
+<p>Menu NVDA, Préférences, Paramètres, catégorie « Pied à coulisse » :</p>
+<ul>
+<li><strong>Annoncer quand le pied se connecte ou se déconnecte</strong>
+(coché par défaut) : NVDA dit « Pied à coulisse connecté » ou « Pied à coulisse
+déconnecté », environ 2 secondes après le changement. Le pied est reconnu
+par son nom Bluetooth, « Bluetooth Keyboard » : si un vrai clavier Bluetooth
+Low Energy porte le même nom, l'annonce le concernera aussi ; décocher alors
+cette case.</li>
+<li><strong>Enregistrer les mesures dans un fichier</strong> (mesures.txt,
+coché par défaut) : une ligne par mesure, colonnes séparées par des
+tabulations : date et heure, valeur (point décimal), unité, « pied à
+coulisse ». Le fichier s'ouvre dans un tableur.</li>
+<li><strong>Dossier du fichier des mesures</strong> : par défaut le dossier
+« Mesures pied à coulisse » dans Documents (créé à la première mesure).
+Le bouton Parcourir permet d'en choisir un autre.</li>
+<li><strong>Copier chaque mesure dans le presse-papiers</strong> (décoché par
+défaut) : la valeur (par exemple 21,99) est prête à être collée par
+Contrôle+V.</li>
+<li><strong>Journal des touches reçues</strong> (décoché par défaut) : pour
+le dépannage, note chaque touche reçue dans un sous-dossier « journaux ».</li>
+</ul>
+
+<h2>Touche F24</h2>
+<p>Le geste se trouve dans Préférences, Gestes de commandes, catégorie
+« Pied à coulisse ». Ne pas le retirer : sans lui, la mesure s'écrit à
+nouveau dans la fenêtre active.</p>
+
+<h2>Langues</h2>
+<p>L'extension suit la langue de NVDA : français, anglais, allemand ou
+espagnol (anglais pour les autres langues).</p>
+
+<h2>Auteurs et contact</h2>
+<p>seb-naudet et Claude Code (Anthropic), octobre 2026. Version 1.5.0, NVDA 2023.1 ou plus récent.
+Licence : GNU GPL version 2. Code source : <a href="https://github.com/seb-naudet/igaging-caliper">https://github.com/seb-naudet/igaging-caliper</a>.
+Questions, remarques : <a href="mailto:binaural.bourbonnais@gmail.com">binaural.bourbonnais@gmail.com</a>.</p>
+</body>
+</html>
