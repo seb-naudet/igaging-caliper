@@ -16,6 +16,23 @@ and NVDA speaks the measurement instead, for example "21.99 millimeters".
 Settings: NVDA menu, Preferences, Settings, "Caliper" category.
 Full help: `piedCoulisse/doc/en/readme.html` (also in French, German, Spanish).
 
+## Download and install
+
+Download `igaging-caliper.nvda-addon` from the
+[latest release](https://github.com/seb-naudet/igaging-caliper/releases/latest),
+open it (press Enter on it in File Explorer), confirm, then restart NVDA.
+Pair the caliper in Windows: Settings, Bluetooth & devices, Add device,
+Bluetooth, choose "Bluetooth Keyboard".
+
+## Going back to keyboard mode
+
+Disable the add-on (NVDA menu, Tools, Add-on Store, Installed add-ons,
+Disable, then restart NVDA): the caliper types the measurement into the
+active field again. It types like an English (US) keyboard: with another
+input language the measurement may come out wrong (with French AZERTY, the
+digits become &, é, "…), so switch the input language to English
+(Windows+Space on Windows), on the computer as on an iPhone.
+
 ## Requirements
 
 - NVDA 2023.1 or later (tested with NVDA 2026.3 on Windows 11).
